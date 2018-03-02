@@ -13,31 +13,31 @@ namespace _428_assignment2
         {
             if (string.IsNullOrEmpty(from))
             {
-                throw new Exception("invalid from");
+                throw new FormatException("invalid from");
             }
             if (string.IsNullOrEmpty(to))
             {
-                throw new Exception("invalid to");
+                throw new FormatException("invalid to");
             }
             if (length<=0)
             {
-                throw new Exception("invalid length");
+                throw new FormatException("invalid length");
             }
             if (width<=0)
             {
-                throw new Exception("invalid width");
+                throw new FormatException("invalid width");
             }
             if (height<=0)
             {
-                throw new Exception("invalid height");
+                throw new FormatException("invalid height");
             }
             if (weight<=0)
             {
-                throw new Exception("invalid weight");
+                throw new FormatException("invalid weight");
             }
             if ((int)type<0||(int)type>2)
             {
-                throw new Exception("invalid type");
+                throw new FormatException("invalid type");
             }
 
 
