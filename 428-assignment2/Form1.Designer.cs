@@ -85,6 +85,7 @@
             this.length.Name = "length";
             this.length.Size = new System.Drawing.Size(146, 21);
             this.length.TabIndex = 5;
+            this.length.TextChanged += new System.EventHandler(this.length_TextChanged);
             // 
             // label3
             // 
@@ -101,6 +102,7 @@
             this.width.Name = "width";
             this.width.Size = new System.Drawing.Size(146, 21);
             this.width.TabIndex = 7;
+            this.width.TextChanged += new System.EventHandler(this.width_TextChanged);
             // 
             // label4
             // 
@@ -117,6 +119,7 @@
             this.height.Name = "height";
             this.height.Size = new System.Drawing.Size(146, 21);
             this.height.TabIndex = 9;
+            this.height.TextChanged += new System.EventHandler(this.height_TextChanged);
             // 
             // label5
             // 
@@ -133,6 +136,7 @@
             this.weight.Name = "weight";
             this.weight.Size = new System.Drawing.Size(146, 21);
             this.weight.TabIndex = 11;
+            this.weight.TextChanged += new System.EventHandler(this.weight_TextChanged);
             // 
             // label6
             // 
@@ -156,6 +160,7 @@
             // 
             this.Pricetextbox.Location = new System.Drawing.Point(101, 227);
             this.Pricetextbox.Name = "Pricetextbox";
+            this.Pricetextbox.ReadOnly = true;
             this.Pricetextbox.Size = new System.Drawing.Size(146, 21);
             this.Pricetextbox.TabIndex = 15;
             this.Pricetextbox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);

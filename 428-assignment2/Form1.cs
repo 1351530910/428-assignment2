@@ -33,5 +33,37 @@ namespace _428_assignment2
         {
 
         }
+
+        private void length_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(length.Text, "[^0-9]"))
+            {
+                length.Text = length.Text.Remove(length.Text.Length - 1);
+            }
+        }
+
+        private void width_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(width.Text, "[^0-9]"))
+            {
+                width.Text = width.Text.Remove(width.Text.Length - 1);
+            }
+        }
+
+        private void height_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(height.Text, "[^0-9]"))
+            {
+                height.Text = height.Text.Remove(height.Text.Length - 1);
+            }
+        }
+
+        private void weight_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(weight.Text, "[^0-9]"))
+            {
+                weight.Text = weight.Text.Remove(weight.Text.Length - 1);
+            }
+        }
     }
 }
