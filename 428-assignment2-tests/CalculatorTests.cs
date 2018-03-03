@@ -7,138 +7,116 @@ namespace _428_assignment2_tests
     [TestClass]
     public class CalculatorTests
     {
-        string validfrom = "h2l2c9";
-        string validto = "h2x1j5";
-        float validlength = 20f;
-        float validwidth = 20f;
-        float validheight = 20f;
-        float validweight = 20f;
-        PostType validPostType = PostType.Regular;
+        public package validpackage = new package("h2l2c9", "h2x1j5", 15, 10, 30,2, PostType.Regular);
+        
+        public void testSmallPackage()
+        {
+            package package = validpackage;
+            Assert.AreEqual(9.49, calculator.getPrice(validpackage));
+        }
+        public void testLongDistance()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 10, 12, 2, PostType.Regular);
+            Assert.AreEqual(14.49, calculator.getPrice(package));
+        }
 
-        float expected = 0;
+        [TestMethod]
+        public void testNullFrom()
+        {
+            package apackage = new package(validpackage);
+            apackage.from = null;
+            Assert.AreEqual("invalid from", calculator.getPrice(apackage));
+        }
+        [TestMethod]
+        public void testNullTo()
+        {
+            package bpackage = new package(validpackage);
+            bpackage.to = null;
+            Assert.AreEqual("invalid to", calculator.getPrice(bpackage));
+        }
+        [TestMethod]
+        public void testLengthLowBound()
+        {
+            package package = new package(validpackage);
+            package.length = 13.9f;
+            Assert.AreEqual("invalid length", calculator.getPrice(package));
+
+            
+        }
+        [TestMethod]
+        public void testLengthHighBound()
+        {
+            package package = new package(validpackage);
+            package.length = 38.1f;
+            Assert.AreEqual("invalid length", calculator.getPrice(package));
+        }
 
         [TestMethod]
-        public void validInput()
+        public void testWidthLowBound()
         {
-            Assert.AreEqual(expected, calculator.Compute(validfrom, validto, validlength, validwidth, validheight, validweight, validPostType));
+            package package = new package(validpackage);
+            package.width = 8.9f;
+            Assert.AreEqual("invalid width", calculator.getPrice(package));
+           
         }
         [TestMethod]
-        public void nullfrom()
+        public void testWidthHighBound()
         {
-            try
-            {
-                calculator.Compute(null, validto, validlength, validwidth, validheight, validweight, validPostType);
-                Assert.Fail("null from fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.AreEqual("invalid from", e.Message);
-            }
+            package package = new package(validpackage);
+            package.width = 27.1f;
+            Assert.AreEqual("invalid width", calculator.getPrice(package));
         }
         [TestMethod]
-        public void nullto()
+        public void testWeightHighBound()
         {
-            try
-            {
-                calculator.Compute(validfrom, null, validlength, validwidth, validheight, validweight, validPostType);
-                Assert.Fail("null to fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.AreEqual("invalid to", e.Message);
-            }
+            package package = new package(validpackage);
+            package.weight = 50.1f;
+            Assert.AreEqual("invalid weight", calculator.getPrice(package));
         }
         [TestMethod]
-        public void invalidfrom()
+        public void testWeightLowBound()
         {
-            try
-            {
-                calculator.Compute("hhhhhh", validto, validlength, validwidth, validheight, validweight, validPostType);
-                Assert.Fail("invalid from fail");
-            }
-            catch (FormatException e)
-            {
-                
-                Assert.Equals("invalid from", e.Message);
-            }
+            package package = new package(validpackage);
+            package.weight = 0.2f;
+            Assert.AreEqual("invalid weight", calculator.getPrice(package));
         }
         [TestMethod]
-        public void invalidto()
+        public void testHeightLowBound()
         {
-            try
-            {
-                calculator.Compute(validfrom, "hhhhh", validlength, validwidth, validheight, validweight, validPostType);
-                Assert.Fail("invalid to fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.Equals("invalid to", e.Message);
-            }
+            package package = new package(validpackage);
+            package.height = 5.1f;
+            Assert.AreEqual("invalid height", calculator.getPrice(package));
         }
         [TestMethod]
-        public void invalidLength()
+        public void testHeightHighBound()
         {
-            try
-            {
-                calculator.Compute(validfrom, validto, 0, validwidth, validheight, validweight, validPostType);
-                Assert.Fail("invalid length fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.Equals("invalid length", e.Message);
-            }
+            package package = new package(validpackage);
+            package.height = 50.1f;
+            Assert.AreEqual("invalid height", calculator.getPrice(package));
+        }
+
+        [TestMethod]
+        public void testPostalCodeFormatFrom()
+        {
+            package package = new package(validpackage);
+            package.from = "hhhhhh";
+            Assert.AreEqual("invalid from", calculator.getPrice(package));
+            package.from = "h2x2e2e";
+            Assert.AreEqual("invalid from", calculator.getPrice(package));
+            package.from = "111111";
+            Assert.AreEqual("invalid from", calculator.getPrice(package));
         }
         [TestMethod]
-        public void invalidWidth()
+        public void testPostalCodeFormatFromTo()
         {
-            try
-            {
-                calculator.Compute(validfrom, validto, validlength, 0, validheight, validweight, validPostType);
-                Assert.Fail("invalid width fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.Equals("invalid width", e.Message);
-            }
+            package package = new package(validpackage);
+            package.to = "hhhhhh";
+            Assert.AreEqual("invalid to", calculator.getPrice(package));
+            package.to = "h2x2e2e";
+            Assert.AreEqual("invalid to", calculator.getPrice(package));
+            package.to = "111111";
+            Assert.AreEqual("invalid to", calculator.getPrice(package));
         }
-        [TestMethod]
-        public void invalidheight()
-        {
-            try
-            {
-                calculator.Compute(validfrom, validto, validlength, validwidth, 0, validweight, validPostType);
-                Assert.Fail("invalid height fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.Equals("invalid height", e.Message);
-            }
-        }
-        [TestMethod]
-        public void invalidWeight()
-        {
-            try
-            {
-                calculator.Compute(validfrom, validto, validlength, validwidth, validheight, 0, validPostType);
-                Assert.Fail("invalid weight fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.Equals("invalid weight", e.Message);
-            }
-        }
-        [TestMethod]
-        public void invalidPostType()
-        {
-            try
-            {
-                calculator.Compute(validfrom, validto, validlength, validwidth, validheight, validweight, (PostType)8);
-                Assert.Fail("invalid posttype fail");
-            }
-            catch (FormatException e)
-            {
-                Assert.Equals("invalid posttype", e.Message);
-            }
-        }
+
     }
 }

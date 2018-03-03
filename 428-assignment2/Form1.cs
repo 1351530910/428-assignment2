@@ -24,8 +24,9 @@ namespace _428_assignment2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            float price = calculator.Compute(from.Text, To.Text, int.Parse(length.Text), int.Parse(width.Text), int.Parse(height.Text), int.Parse(weight.Text), (PostType)comboBox1.SelectedIndex);
-            Pricetextbox.Text = price.ToString();
+            package package = new package(from.Text, To.Text, int.Parse(length.Text), int.Parse(width.Text), int.Parse(height.Text), int.Parse(weight.Text), (PostType)comboBox1.SelectedIndex);
+            
+            Pricetextbox.Text = calculator.getPrice(package); ;
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)

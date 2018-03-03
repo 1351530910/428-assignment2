@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="calculator.cs" />
+    <Compile Include="DataSheet.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

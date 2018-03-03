@@ -14,6 +14,7 @@ namespace _428_assignment2
         [STAThread]
         static void Main()
         {
+            DataSheet.init();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
