@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("428-assignment2")]
+[assembly: AssemblyTitle("Ecse428_AssignmentB")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("428-assignment2")]
+[assembly: AssemblyProduct("Ecse428_AssignmentB")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c5eaa9f2-7eea-4f0b-8f75-fa6b72dcf905")]
+[assembly: Guid("1fe492ae-8ca0-4f3a-b8c9-e6b7fe4923da")]
 
 // Version information for an assembly consists of the following four values:
 //

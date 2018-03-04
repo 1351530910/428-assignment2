@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _428_assignment2
+namespace Ecse428_AssignmentB
 {
-    public enum PostType { Regular,Xpress,Priority}
+    public enum PostType { Regular, Xpress, Priority }
     public class package
     {
         public string from { get; set; }
@@ -26,6 +26,25 @@ namespace _428_assignment2
             this.weight = weight;
             this.type = type;
         }
+        public package(string from, string to, string length, string width, string height, string weight, string type)
+        {
+            this.from = from;
+            this.to = to;
+            try
+            {
+                this.length = float.Parse(length);
+                this.width = float.Parse(width);
+                this.height = float.Parse(height);
+                this.weight = float.Parse(weight);
+                this.type = (PostType)int.Parse(type);
+            }
+            catch (Exception)
+            {
+
+                throw new FormatException();
+            }
+            
+        }
         public package(package model)
         {
             this.from = model.from;
@@ -37,14 +56,14 @@ namespace _428_assignment2
             this.type = model.type;
         }
     }
-    public class calculator
+    public class Calc
     {
         static string PostalHead = "abceghjklmnprstvxy";
         static List<char> postalheadlist = PostalHead.ToString().ToList();
         public static string getPrice(package package)
         {
             //throw new NotImplementedException();
-            if (validate(package)!=null)
+            if (validate(package) != null)
             {
                 return validate(package);
             }
@@ -52,15 +71,15 @@ namespace _428_assignment2
             float sum = DataSheet.getprice(package.length, package.width, package.weight);
             int distance = postalheadlist.IndexOf(char.ToLower(package.from[0]));
             distance = Math.Abs(postalheadlist.IndexOf(char.ToLower(package.to[0])) - distance);
-            sum += distance +9;
-            sum *= (1+(int)package.type/2.0f);
+            sum += distance + 9;
+            sum *= (1 + (int)package.type / 2.0f);
 
             return sum.ToString();
         }
         private static string validate(package package)
         {
             //data validation
-            if (package==null)
+            if (package == null)
             {
                 return "invalid package";
             }
@@ -97,21 +116,21 @@ namespace _428_assignment2
             {
                 return "invalid length";
             }
-            if (package.height >= 50||package.height<15)
+            if (package.height >= 50 || package.height < 15)
             {
                 return "invalid height";
             }
-            if (package.weight>=5 || package.weight<0.3)
+            if (package.weight >= 5 || package.weight < 0.3)
             {
                 return "invalid weight";
             }
-            if (package.width>=27||package.width<9)
+            if (package.width >= 27 || package.width < 9)
             {
                 return "invalid width";
             }
 
             return null;
         }
-        
+
     }
 }

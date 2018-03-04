@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _428_assignment2
+namespace Ecse428_AssignmentB
 {
     public class DataSheet
     {
@@ -37,7 +37,7 @@ namespace _428_assignment2
         {
             for (int i = 0; i < 9; i++)
             {
-                if (lenght>=values[i,1]&&lenght<values[i,2]&&width>=values[i,3]&&width<values[i,4]&&weight>=values[i,5]&&weight<values[i,6])
+                if (lenght >= values[i, 1] && lenght < values[i, 2] && width >= values[i, 3] && width < values[i, 4] && weight >= values[i, 5] && weight < values[i, 6])
                 {
                     return values[i, 0];
                 }
