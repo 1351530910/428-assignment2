@@ -22,6 +22,83 @@ namespace _428_assignment2_tests
         }
         [TestMethod]
 
+        public void testvalidrule1()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 10, 20, 1, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule2()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 10, 20, 4, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule3()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 10, 38, 0.8f, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule4()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 10, 38, 2, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule5()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 28, 10, 20, 0.8f, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule6()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 28, 10, 20, 2, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule7()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 19, 20, 0.8f, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule8()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 19, 20, 2, PostType.Regular);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule9()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 19, 20, 2, PostType.Xpress);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule10()
+        {
+            package package = new package("h2x2e2", "n4e6p6", 15, 19, 20, 2, PostType.Priority);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
+        public void testvalidrule11()
+        {
+            package package = new package("H2L2C9", "H2X1J5", 15, 19, 20, 2, PostType.Priority);
+            Assert.AreEqual("", calculator.getPrice(package));
+        }
+        [TestMethod]
+
         public void testLongDistance()
         {
             package package = new package("h2x2e2", "n4e6p6", 15, 10, 30, 2, PostType.Regular);
