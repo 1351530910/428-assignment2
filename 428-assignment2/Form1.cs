@@ -12,6 +12,7 @@ namespace _428_assignment2
 {
     public partial class Form1 : Form
     {
+        static string numbers = "1234567890.";
         static string[] type = {"Regular","Xpress","Priority" };
         public Form1()
         {
@@ -20,13 +21,21 @@ namespace _428_assignment2
             {
                 comboBox1.Items.Add(item);
             }
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            package package = new package(from.Text, To.Text, int.Parse(length.Text), int.Parse(width.Text), int.Parse(height.Text), int.Parse(weight.Text), (PostType)comboBox1.SelectedIndex);
+            try
+            {
+                package package = new package(from.Text, To.Text, float.Parse(length.Text), float.Parse(width.Text), float.Parse(height.Text), float.Parse(weight.Text), (PostType)comboBox1.SelectedIndex);
+
+                Pricetextbox.Text = calculator.getPrice(package);
+            }
+            catch (Exception)
+            {
+            }
             
-            Pricetextbox.Text = calculator.getPrice(package); ;
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -36,34 +45,41 @@ namespace _428_assignment2
 
         private void length_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(length.Text, "[^0-9]"))
-            {
-                length.Text = length.Text.Remove(length.Text.Length - 1);
-            }
+            length.Text = format(length.Text);
+            
         }
 
         private void width_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(width.Text, "[^0-9]"))
-            {
-                width.Text = width.Text.Remove(width.Text.Length - 1);
-            }
+            width.Text = format(width.Text);
+            
         }
 
         private void height_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(height.Text, "[^0-9]"))
-            {
-                height.Text = height.Text.Remove(height.Text.Length - 1);
-            }
+            height.Text = format(height.Text);
+            
         }
 
         private void weight_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(weight.Text, "[^0-9]"))
+            weight.Text = format(weight.Text);
+            
+        }
+
+        private string format(string input)
+        {
+            string output = "";
+            foreach (char item in input)
             {
-                weight.Text = weight.Text.Remove(weight.Text.Length - 1);
+                if (numbers.Contains(item))
+                {
+                    output += item;
+                }
             }
+            return output;
+
+
         }
     }
 }

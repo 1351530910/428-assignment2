@@ -8,16 +8,35 @@ namespace _428_assignment2_tests
     public class CalculatorTests
     {
         public package validpackage = new package("h2l2c9", "h2x1j5", 15, 10, 30,2, PostType.Regular);
-        
+
+        [TestInitialize]
+        public void initialize()
+        {
+            DataSheet.init();
+        }
+        [TestMethod]
         public void testSmallPackage()
         {
-            package package = validpackage;
-            Assert.AreEqual(9.49, calculator.getPrice(validpackage));
+            package package = new package(validpackage);
+            Assert.AreEqual("9.49", calculator.getPrice(package));
         }
+        [TestMethod]
+
         public void testLongDistance()
         {
-            package package = new package("h2x2e2", "n4e6p6", 15, 10, 12, 2, PostType.Regular);
-            Assert.AreEqual(14.49, calculator.getPrice(package));
+            package package = new package("h2x2e2", "n4e6p6", 15, 10, 30, 2, PostType.Regular);
+            Assert.AreEqual("14.49", calculator.getPrice(package));
+        }
+        [TestMethod]
+        public void testnullreference()
+        {
+            Assert.AreEqual("invalid package", calculator.getPrice(null));
+        }
+        [TestMethod]
+        public void testPostalCapital()
+        {
+            package package = new package("H2L2C9", "H2X1J5", 15, 10, 30, 2, PostType.Regular);
+            Assert.AreEqual("9.49", calculator.getPrice(package));
         }
 
         [TestMethod]

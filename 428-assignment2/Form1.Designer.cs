@@ -59,6 +59,7 @@
             // from
             // 
             this.from.Location = new System.Drawing.Point(101, 36);
+            this.from.MaxLength = 6;
             this.from.Name = "from";
             this.from.Size = new System.Drawing.Size(146, 21);
             this.from.TabIndex = 1;
@@ -66,6 +67,7 @@
             // To
             // 
             this.To.Location = new System.Drawing.Point(101, 63);
+            this.To.MaxLength = 6;
             this.To.Name = "To";
             this.To.Size = new System.Drawing.Size(146, 21);
             this.To.TabIndex = 3;

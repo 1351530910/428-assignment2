@@ -50,9 +50,9 @@ namespace _428_assignment2
             }
 
             float sum = DataSheet.getprice(package.length, package.width, package.weight);
-            int distance = postalheadlist.IndexOf(package.from[0]);
-            distance = Math.Abs(postalheadlist.IndexOf(package.to[0]) - distance);
-            sum += distance +8;
+            int distance = postalheadlist.IndexOf(char.ToLower(package.from[0]));
+            distance = Math.Abs(postalheadlist.IndexOf(char.ToLower(package.to[0])) - distance);
+            sum += distance +9;
             sum *= (1+(int)package.type/2.0f);
 
             return sum.ToString();
@@ -60,6 +60,10 @@ namespace _428_assignment2
         private static string validate(package package)
         {
             //data validation
+            if (package==null)
+            {
+                return "invalid package";
+            }
             if (string.IsNullOrEmpty(package.from))
             {
                 return "invalid from";
