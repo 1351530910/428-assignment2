@@ -55,13 +55,11 @@ namespace UnitTestProject
             Assert.AreEqual("14.98", Calc.getPrice(new package("h2x2e2", "n4e6p6", 15, 19, 20, 0.8f, PostType.Regular)));
         }
         [TestMethod]
-
         public void testValid8()
         {
             Assert.AreEqual("16.4", Calc.getPrice(new package("h2x2e2", "n4e6p6", 15, 19, 20, 2, PostType.Regular)));
         }
         [TestMethod]
-
         public void testValid9()
         {
             Assert.AreEqual("24.6", Calc.getPrice(new package("h2x2e2", "n4e6p6", 15, 19, 20, 2, PostType.Xpress)));
