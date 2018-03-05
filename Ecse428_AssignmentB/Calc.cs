@@ -58,11 +58,11 @@ namespace Ecse428_AssignmentB
     }
     public class Calc
     {
+        
         static string PostalHead = "abceghjklmnprstvxy";
         static List<char> postalheadlist = PostalHead.ToString().ToList();
         public static string getPrice(package package)
         {
-            //throw new NotImplementedException();
             if (validate(package) != null)
             {
                 return validate(package);

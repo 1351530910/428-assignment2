@@ -27,13 +27,11 @@ namespace UnitTestProject
             Assert.AreEqual("14.8", Calc.getPrice(new package("h2x2e2", "n4e6p6", 15, 10, 20, 4, PostType.Regular)));
         }
         [TestMethod]
-
         public void testValid3()
         {
             Assert.AreEqual("14.49", Calc.getPrice(new package("h2x2e2", "n4e6p6", 15, 10, 38, 0.8f, PostType.Regular)));
         }
         [TestMethod]
-
         public void testValid4()
         {
             Assert.AreEqual("14.49", Calc.getPrice(new package("h2x2e2", "n4e6p6", 15, 10, 38, 2, PostType.Regular)));
@@ -179,7 +177,7 @@ namespace UnitTestProject
             Assert.AreEqual("invalid from", Calc.getPrice(package));
         }
         [TestMethod]
-        public void testPostalCodeFormatFromTo()
+        public void testPostalCodeFormatTo()
         {
             package package = new package(validpackage);
             package.to = "hhhhhh";
